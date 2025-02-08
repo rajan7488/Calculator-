@@ -22,18 +22,21 @@ button.forEach(btn=>{
         }
 
         //fixes the 7*-3 isseue and 7**3 this isseue
-        else if ("+-*/".includes(e.target.innerHTML)) {
+        else if ("%+-*/".includes(e.target.innerHTML)) {
             let lastChar = string[string.length - 1];
-        
+            if (!string || "%+-*/".includes(lastChar)) {
+                return;
+            }
             // Allow negative numbers like 7*-3
-            if ("*/+".includes(lastChar) && e.target.innerHTML === "-") {
+            if ("%*/".includes(lastChar) && e.target.innerHTML === "-") {
                 string += e.target.innerHTML; // Allow negative numbers after * or /
                 display.value = string;
                 return;
             }
+
         
             // Replace last operator if another is clicked
-            if ("+-*/".includes(lastChar)) {
+            if ("%+-*/".includes(lastChar)) {
                 string = string.slice(0, -1);
             }
         
