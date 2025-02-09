@@ -24,8 +24,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     max-width: 100%;
-    width: 20rem; /* Set a base width */
+    width: 25rem; /* Set a base width */
 }
 
 input {
@@ -49,19 +50,21 @@ input::placeholder {
 }
 
 button {
-    flex: 1;
-    min-width: 50px;
-    height: 50px;
-    margin: 5px;
+    /* flex: 1; */
+    width: 2.4rem;
+    height: 2.4rem;
+    margin: 0.3rem;
+    /* padding: ; */
     font-size: 1.5rem;
     box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.4);
-    border-radius: 25px;
+    border-radius: 1.5rem;
     border: 2px solid rgba(255, 255, 255, 0.5);
     background-color: #000000;
     color: #fff;
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap; */
 }
 
 .ac, .del, .operator {
@@ -80,12 +83,40 @@ button {
     justify-content: space-between;
     width: 100%;
 }
+/* 
+ button {
+    width: 22%;
+} */
 
-button {
-    width: 22%; /* Dynamic button width */
+
+@media (max-width: 349px) {
+
+    .calculator {
+
+        width: 90% !important;
+        /* max-width: 320px; */
+        
+        padding: 1rem;
+    }
+
+    input {
+        font-size: 1.8rem;
+        padding: 1rem;
+    }
+
+    button {
+        /* width: 15%;s */
+        width: 2.5rem !important;
+        /* flex-shrink:inherit ; */
+        height: 2rem;
+        /* height:2.7rem; */
+        font-size: 0.9rem !important;
+        /* margin: 3px; */
+    }
 }
 
-@media (max-width: 600px) {
+
+@media (min-width: 350px) {
     .calculator {
         width: 80%; /* Reduce calculator size for mobile */
     }
@@ -95,7 +126,7 @@ button {
     }
 
     button {
-        width: 18%; /* Adjust button size on small screens */
+        width: 20%; /* Adjust button size on small screens */
         font-size: 1.2rem;
     }
 }
@@ -110,7 +141,7 @@ button {
     }
 
     button {
-        width: 23%;
+        width: 20%;
         font-size: 1.6rem;
     }
 }
@@ -125,7 +156,7 @@ button {
     }
 
     button {
-        width: 23%;
+        width: 20%;
         font-size: 1.8rem;
     }
 }
