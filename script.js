@@ -29,10 +29,10 @@ button.forEach(btn=>{
             if (!string && e.target.innerHTML !== "-") {
                 return;
             }
-            // if(lastChar==="-"){
-            //     return;
-            // }
-        
+            if ("%+*/".includes(e.target.innerHTML)){
+                return;
+            }
+            
             // Allow negative numbers after *, /, %
             if ("*/%".includes(lastChar) && e.target.innerHTML === "-") {
                 string += e.target.innerHTML;
@@ -40,7 +40,7 @@ button.forEach(btn=>{
                 return;
             }
             let lastTwo=string[string.length-2];
-            if ("%+-*/".includes(lastTwo)) {
+            if ("%+*/".includes(lastTwo)) {
                 string = string.slice(0, -1);
             }
         
