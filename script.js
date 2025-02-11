@@ -29,10 +29,9 @@ button.forEach(btn=>{
             if (!string && e.target.innerHTML !== "-") {
                 return;
             }
-            if ("%+*/".includes(e.target.innerHTML)){
+            if (string ==="-"&& e.target.innerHTML !== "-"&&string.length===1) {
                 return;
             }
-            
             // Allow negative numbers after *, /, %
             if ("*/%".includes(lastChar) && e.target.innerHTML === "-") {
                 string += e.target.innerHTML;
@@ -40,7 +39,7 @@ button.forEach(btn=>{
                 return;
             }
             let lastTwo=string[string.length-2];
-            if ("%+*/".includes(lastTwo)) {
+            if ("%+-*/".includes(lastTwo)&&"%+-*/".includes(lastChar)) {
                 string = string.slice(0, -1);
             }
         
@@ -53,6 +52,7 @@ button.forEach(btn=>{
             string += e.target.innerHTML;
             display.value = string;
         }
+
         
         
         
