@@ -22,24 +22,39 @@ button.forEach(btn=>{
         }
 
         //fixes the 7*-3 isseue and 7**3 this isseue
-        else if ("+-*/".includes(e.target.innerHTML)) {
+        else if ("%+-*/".includes(e.target.innerHTML)) {
             let lastChar = string[string.length - 1];
         
-            // Allow negative numbers like 7*-3
-            if ("*/+".includes(lastChar) && e.target.innerHTML === "-") {
-                string += e.target.innerHTML; // Allow negative numbers after * or /
+            // Prevent operators at the beginning (except '-')
+            if (!string && e.target.innerHTML !== "-") {
+                return;
+            }
+            if (string ==="-"&& e.target.innerHTML !== "-"&&string.length===1) {
+                return;
+            }
+            // Allow negative numbers after *, /, %
+            if ("*/%".includes(lastChar) && e.target.innerHTML === "-") {
+                string += e.target.innerHTML;
                 display.value = string;
                 return;
             }
-        
-            // Replace last operator if another is clicked
-            if ("+-*/".includes(lastChar)) {
+            let lastTwo=string[string.length-2];
+            if ("%+-*/".includes(lastTwo)&&"%+-*/".includes(lastChar)) {
                 string = string.slice(0, -1);
             }
         
-            string += e.target.innerHTML; // Append operator
+            // If the last character is already an operator, replace it
+            if ("%+-*/".includes(lastChar)) {
+                string = string.slice(0, -1);
+            }
+        
+            // Append the new operator
+            string += e.target.innerHTML;
             display.value = string;
         }
+
+        
+        
         
         // fixes the 6..3 isseue
 

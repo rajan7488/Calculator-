@@ -1,10 +1,11 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-weight: bold;
 }
-body{
+
+body {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -12,53 +13,150 @@ body{
     background-color: #9BA4AB;
     align-items: center;
 }
-.calculator{
+
+.calculator {
     padding: 1.5rem;
     border: 2px solid rgb(134, 129, 129);
     border-radius: 1rem;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.8);
     background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 25rem; /* Set a base width */
 }
-input{
-    width: 18rem;
-    direction: ltr;     /* Ensures left-to-right text direction */
-    /* overflow: scroll;   Prevents scrolling issues */
+
+input {
+    width: 100%;
+    direction: ltr; 
     overflow-x: auto;
-    white-space: nowrap;                
-    /* height: 3rem; */
+    white-space: nowrap;
     text-align: right;
     padding: 1.3rem;
-    margin: 0.7rem;
-    background: rgba(255,255, 255, 0.5);
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.5);
     box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.3);
     border: none;
     border-radius: 5px;
     font-size: 2.5rem;
 }
-input::placeholder{
+
+input::placeholder {
     color: #fff;
     font-weight: 900;
 }
 
-button{
-    width: 62px;
-    height: 62px;
-    margin: 5px;
-    font-size: 1.2rem;
-    /* color: #ffffff; */
+button {
+    /* flex: 1; */
+    width: 2.4rem;
+    height: 2.4rem;
+    margin: 0.3rem;
+    /* padding: ; */
+    font-size: 1.5rem;
     box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.4);
-    border-radius: 25px;
-    border: 2px solid rgba(255,255, 255, 0.5);
+    border-radius: 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.5);
     background-color: #000000;
     color: #fff;
-    /* opacity: 1; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; */
 }
-.ac ,.del,.operator{
-    /* background-color: #000000; */
+
+.ac, .del, .operator {
     color: #f67c14;
-    /* color: #fff; */
 }
-.eqalBtn{
+
+.eqalBtn {
     background-color: #f67c14;
     color: #fff;
+}
+
+/* Layout adjustments for button grid */
+.calculator div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+/* 
+ button {
+    width: 22%;
+} */
+
+
+@media (max-width: 349px) {
+
+    .calculator {
+
+        width: 90% !important;
+        /* max-width: 320px; */
+        
+        padding: 1rem;
+    }
+
+    input {
+        font-size: 1.8rem;
+        padding: 1rem;
+    }
+
+    button {
+        /* width: 15%;s */
+        width: 2.5rem !important;
+        /* flex-shrink:inherit ; */
+        height: 2rem;
+        /* height:2.7rem; */
+        font-size: 0.9rem !important;
+        /* margin: 3px; */
+    }
+}
+
+
+@media (min-width: 350px) {
+    .calculator {
+        width: 80%; /* Reduce calculator size for mobile */
+    }
+
+    input {
+        font-size: 2rem;
+    }
+
+    button {
+        width: 20%; /* Adjust button size on small screens */
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .calculator {
+        width: 70%; /* Slightly reduced size for tablets */
+    }
+
+    input {
+        font-size: 2.2rem;
+    }
+
+    button {
+        width: 20%;
+        font-size: 1.6rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .calculator {
+        width: 400px; /* Max width for larger screens */
+    }
+
+    input {
+        font-size: 2.5rem;
+    }
+
+    button {
+        width: 20%;
+        font-size: 1.8rem;
+    }
 }
